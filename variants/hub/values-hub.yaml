@@ -10,6 +10,7 @@ clusterGroup:
     external-secrets:
     config-demo:
     hello-world:
+    boutique: {}
   subscriptions:
     acm:
       name: advanced-cluster-management
@@ -74,6 +75,19 @@ clusterGroup:
       namespace: hello-world
       argoProject: hello-world
       path: charts/all/hello-world
+    boutique:
+      name: boutique
+      namespace: boutique
+      argoProject: hub
+      chart: boutique
+      chartVersion: 0.0.*
+    # boutique:
+    #   name: boutique
+    #   namespace: boutique
+    #   argoProject: hub
+    #   repoURL: https://github.com/validatedpatterns/opp-policy-chart.git
+    #   chartVersion: main
+
   imperative:
     # NOTE: We *must* use lists and not hashes. As hashes lose ordering once parsed by helm
     # The default schedule is every 10 minutes: imperative.schedule
